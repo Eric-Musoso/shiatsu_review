@@ -11,6 +11,7 @@ Current live site: <https://www.shiatsu-kolczewski.de>
 | [New website](https://eric-musoso.github.io/shiatsu_review/website/) | The redesigned website, in German, ready to use |
 | [Review and plan](https://eric-musoso.github.io/shiatsu_review/review/) | Website and competitor review with a plan to reach four clients a day |
 | [REVIEW.md](REVIEW.md) | The same review as plain Markdown |
+| [Demo video](assets/shiatsu-demo.mp4) | 1-minute walkthrough of the review and the new website (1920×1080, no sound) |
 
 ## What's in the repository
 
@@ -22,7 +23,7 @@ Current live site: <https://www.shiatsu-kolczewski.de>
 | `website/index.html` | The new website: content, styles and a small script for the phone menu and the film |
 | `website/img/` | The practice's own photos and the logo (taken from shiatsu-kolczewski.de) |
 | `website/media/shiatsu-film.mp4` | 21-second film (1280×720, no sound) |
-| `assets/` | Styles and preview images for the overview and review pages |
+| `assets/` | Styles and preview images for the overview and review pages, and the 1-minute demo video |
 
 ## The new website
 
