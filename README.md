@@ -1,19 +1,32 @@
-# Shiatsu Kolczewski – Website
+# shiatsu_review
 
-New website for **Shiatsu Thomas Kolczewski**, Maximilianstraße 15a, 48147 Münster.
+Website review and redesign for **Shiatsu Thomas Kolczewski**, Maximilianstraße 15a, 48147 Münster.
 Current live site: <https://www.shiatsu-kolczewski.de>
 
-A single static page in German: white background, frosted-glass cards, the practice's own photos and logo, and a 21-second film.
+**Shareable page:** <https://eric-musoso.github.io/shiatsu_review/>
 
-## Contents
+| Link | What it is |
+| --- | --- |
+| [Overview](https://eric-musoso.github.io/shiatsu_review/) | One page with everything: the new website, the review and the film |
+| [New website](https://eric-musoso.github.io/shiatsu_review/website/) | The redesigned website, in German, ready to use |
+| [Review and plan](https://eric-musoso.github.io/shiatsu_review/review/) | Website and competitor review with a plan to reach four clients a day |
+| [REVIEW.md](REVIEW.md) | The same review as plain Markdown |
+
+## What's in the repository
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | The whole website: content, styles and a small script for the phone menu and the film |
-| `img/` | The practice's own photos and the logo (taken from shiatsu-kolczewski.de) |
-| `media/shiatsu-film.mp4` | 21-second film (1280×720, no sound) |
+| `index.html` | Overview page that links everything together |
+| `review/index.html` | The review as a web page |
+| `REVIEW.md` | The review as Markdown |
+| `website/index.html` | The new website: content, styles and a small script for the phone menu and the film |
+| `website/img/` | The practice's own photos and the logo (taken from shiatsu-kolczewski.de) |
+| `website/media/shiatsu-film.mp4` | 21-second film (1280×720, no sound) |
+| `assets/` | Styles and preview images for the overview and review pages |
 
-## Sections
+## The new website
+
+A single static page: white background, frosted-glass cards, the practice's own photos and logo, and the film. Sections in order:
 
 1. Start screen with headline, booking button and Google rating
 2. Film "Shiatsu in 21 Sekunden"
@@ -27,22 +40,18 @@ A single static page in German: white background, frosted-glass cards, the pract
 
 ## View it locally
 
-Open `index.html` in a browser, or run a small local server:
-
 ```bash
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-## Publish it
+## Use the website on the real domain
 
-The site is plain HTML with no build step. It can be hosted on any web space, for example:
-
-- **GitHub Pages:** repository Settings → Pages → Branch `main`, folder `/ (root)`.
-- **Your current host:** upload `index.html`, `img/` and `media/` to the web root.
+Everything is plain HTML with no build step. To replace the current site, upload the contents of `website/` (`index.html`, `img/`, `media/`) to the web root of shiatsu-kolczewski.de.
 
 ## Things to keep up to date
 
-- Opening hours, prices and the number of Google reviews are written directly in `index.html`.
+- Opening hours, prices and the number of Google reviews are written directly in `website/index.html`.
 - The booking buttons link to the existing calendar at `https://www.shiatsu-kolczewski.de/termin/`.
 - Review quotes show shortened names; ask the reviewers before showing full names.
+- Update the Google Business Profile hours to match the website (Mon 14–19, Tue 14–20, Wed 11–20, Thu 11–19, Fri 17–20).
