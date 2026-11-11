@@ -20,24 +20,25 @@ Current live site: <https://www.shiatsu-kolczewski.de>
 | `index.html` | Overview page that links everything together |
 | `review/index.html` | The review as a web page |
 | `REVIEW.md` | The review as Markdown |
-| `website/index.html` | The new website: content, styles and a small script for the phone menu, the film sound switch and the testimonial carousel |
+| `website/index.html` | The new website: content, styles and a small script for the phone menu, the film sound switch and the moving testimonials |
 | `website/img/` | The practice's own photos and the logo (taken from shiatsu-kolczewski.de) |
 | `website/media/shiatsu-film.mp4` | 21-second film (1280×720) with a soft ambient soundtrack; it plays muted until the visitor switches the sound on |
 | `assets/` | Styles and preview images for the overview and review pages, and the 1-minute demo video |
 
 ## The new website
 
-A single static page: white background, frosted-glass cards, the practice's own photos and logo, and the film. Sections in order:
+A single static page: soft light behind white frosted-glass sheets and cards, the practice's own photos and logo, and the film. Sections in order:
 
 1. Start screen with headline, booking button and Google rating
 2. Film "Erleben Sie Shiatsu in 21 Sekunden" – sound is off until the visitor switches it on
 3. Behandlung – when people come for shiatsu
-4. Stimmen – 5,0 from 33 Google reviews, with real review excerpts in a swipeable carousel
+4. Stimmen – 5,0 from 33 Google reviews, with real review excerpts on cards that drift slowly up and down (with a pause button)
 5. Ihr erster Besuch – four steps
 6. Angebote und Preise – 90 € treatment, 405 € 5-session card, 45 € Shiatsu kompakt, vouchers from 50 €
 7. Über mich
 8. Die Praxis – photo gallery
-9. Termin und Kontakt – address, phone, e-mail, opening hours, Instagram, Facebook, LinkedIn
+9. Termin und Kontakt – address, phone, e-mail, opening hours
+10. Footer – logo, page links, practice address, Instagram, Facebook, LinkedIn, Impressum and Datenschutz
 
 ## View it locally
 
@@ -55,5 +56,5 @@ Everything is plain HTML with no build step. To replace the current site, upload
 - Opening hours, prices and the number of Google reviews are written directly in `website/index.html`.
 - The booking buttons link to the existing calendar at `https://www.shiatsu-kolczewski.de/termin/`.
 - Review quotes show shortened names; ask the reviewers before showing full names.
-- To add a testimonial, copy one `<figure class="review">` block in `website/index.html` and change the text. The dots and arrows adjust on their own.
+- To add a testimonial, copy one `<figure class="review">` block in `website/index.html` and change the text. The columns fill and move on their own.
 - Update the Google Business Profile hours to match the website (Mon 14–19, Tue 14–20, Wed 11–20, Thu 11–19, Fri 17–20).

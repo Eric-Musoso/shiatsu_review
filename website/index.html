@@ -19,8 +19,8 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin:0}
 .eyebrow::before{content:'';flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold-l);background:#fff;box-shadow:0 0 0 4px rgba(201,166,95,.16)}
 .lead{font-size:clamp(18px,1.5vw,20px);line-height:1.6;color:var(--muted);margin:0;text-wrap:pretty}
-.glass{background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,255,255,.55));-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);
-  border:1px solid rgba(255,255,255,.95);box-shadow:0 24px 60px rgba(30,45,35,.10),0 2px 6px rgba(30,45,35,.04),inset 0 1px 0 #fff}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.66));-webkit-backdrop-filter:blur(28px) saturate(175%);backdrop-filter:blur(28px) saturate(175%);
+  border:1px solid #fff;box-shadow:0 30px 70px rgba(30,45,35,.11),0 2px 6px rgba(30,45,35,.04),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(255,255,255,.55)}
 .aura{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
 .aura.sage{background:#C9D9CC;opacity:.7}
 .aura.gold{background:#F1E2C2;opacity:.8}
@@ -85,7 +85,7 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 
 /* sections */
 .section{position:relative;padding:clamp(80px,9vw,128px) 0}
-.section.toned{background:var(--tone)}
+.section.toned{margin-inline:clamp(8px,1.6vw,24px);border-radius:clamp(28px,4vw,56px);background:linear-gradient(160deg,rgba(255,255,255,.88),rgba(255,255,255,.60));border:1px solid #fff;box-shadow:0 30px 90px rgba(30,45,35,.08),inset 0 1px 0 #fff}
 .head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:48px}
 .head.center{margin-inline:auto;text-align:center;align-items:center}
 .h2{font-size:clamp(42px,5vw,76px)}
@@ -147,11 +147,23 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .c-label{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .c-value{font-size:17px;line-height:1.5}
 .c-value a{text-decoration:none}
-.footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted);position:relative;z-index:2;background:#fff}
-.footer .container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
-.footer-logo{width:92px;height:auto}
-.footer nav{display:flex;gap:20px}
-.footer a{color:var(--muted)}
+.footer{position:relative;z-index:2;padding:clamp(20px,3vw,36px) 0 clamp(20px,3vw,36px);font-size:15px;color:var(--muted)}
+.f-panel{border-radius:clamp(28px,3.4vw,44px);padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1.15fr 1.25fr;gap:clamp(28px,4vw,56px);padding-bottom:clamp(28px,4vw,48px)}
+.f-brand{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.footer-logo{width:104px;height:auto}
+.f-col{display:flex;flex-direction:column;align-items:flex-start;gap:11px;line-height:1.5}
+.f-col .c-label{margin-bottom:6px}
+.f-col a,.f-col span{color:var(--ink);text-decoration:none;font-size:16px}
+.f-col a:hover{color:var(--accent)}
+.f-social .social{flex-direction:column;align-items:flex-start;gap:8px}
+.f-social .social a{font-size:15px;background:rgba(255,255,255,.85)}
+.f-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding:20px 0 22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.f-bottom nav{display:flex;gap:22px}
+.f-bottom a{color:var(--muted);text-decoration:none}
+.f-bottom a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+@media (max-width: 960px){ .f-top{grid-template-columns:1fr 1fr} .f-brand{grid-column:1 / -1} }
+@media (max-width: 520px){ .f-top{grid-template-columns:1fr} .f-social .social{flex-direction:row;flex-wrap:wrap} }
 
 @supports (animation-timeline: view()){
   .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
@@ -201,28 +213,42 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .social svg{width:18px;height:18px}
 
 /* reviews */
-.reviews-wrap{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:24px;align-items:stretch}
+.reviews-wrap{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:28px;align-items:center}
 .score{border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:10px}
 .score-num{font-family:'Instrument Serif',serif;font-size:clamp(96px,10vw,140px);line-height:.85}
 .score .stars svg{width:24px;height:24px}
 .score-links{display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:15px}
-/* testimonials: one at a time, swipe or use the arrows; dots are built from the number of .review blocks */
-.carousel{border-radius:28px;min-width:0;display:flex;flex-direction:column;overflow:hidden}
-.reviews{display:flex;flex:1;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;outline-offset:-4px}
-.reviews::-webkit-scrollbar{display:none}
-.review{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;margin:0;padding:clamp(28px,4vw,52px) clamp(26px,4.5vw,60px) 12px;display:flex;flex-direction:column;justify-content:center;gap:22px}
-.review blockquote{margin:0;font-family:'Instrument Serif',serif;font-size:clamp(25px,2.7vw,36px);line-height:1.25;color:var(--ink)}
-.review figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;font-size:15px;color:var(--muted)}
+/* testimonials: columns of cards that drift slowly up and down; built by the script from the .review blocks */
+.t-wrap{position:relative;min-width:0}
+.t-wall{display:grid;gap:16px;max-height:560px;overflow-y:auto;border-radius:24px}
+.t-wall.is-live{display:flex;gap:16px;height:clamp(440px,62vh,580px);max-height:none;overflow:hidden;border-radius:0;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%)}
+.t-wall.is-live > .review{display:none}
+.t-col{flex:1;min-width:0}
+.t-track{display:flex;flex-direction:column;animation:t-drift 60s linear infinite;will-change:transform}
+.t-track.down{animation-direction:reverse}
+.t-wall.is-live:hover .t-track,.t-wall.is-live:focus-within .t-track,.t-wall.paused .t-track{animation-play-state:paused}
+@keyframes t-drift{to{transform:translateY(-50%)}}
+.review{margin:0;border-radius:24px;padding:24px 26px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(255,255,255,.78));border:1px solid #fff;box-shadow:0 14px 34px rgba(30,45,35,.08),inset 0 1px 0 #fff}
+.t-track .review{margin-bottom:16px}
+.review::before{content:'★★★★★';font-size:14px;letter-spacing:3px;color:var(--gold-l);line-height:1}
+.review blockquote{margin:0;font-family:'Instrument Serif',serif;font-size:clamp(20px,1.7vw,23px);line-height:1.3;color:var(--ink)}
+.review figcaption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;font-size:14px;color:var(--muted)}
 .review figcaption b{color:var(--ink);font-weight:600}
-.car-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px clamp(18px,3vw,36px) 22px}
-.car-btn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,opacity .2s}
-.car-btn svg{width:20px;height:20px}
-.car-btn:hover{border-color:var(--gold-l)}
-.car-btn:disabled{opacity:.3;cursor:default}
-.car-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
-.car-dot{width:24px;height:24px;padding:0;border:0;background:none;display:grid;place-items:center;cursor:pointer}
-.car-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:rgba(22,24,26,.18);transition:background .25s,transform .25s}
-.car-dot.on::before{background:var(--accent);transform:scale(1.35)}
+.t-pause{position:absolute;right:10px;bottom:10px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.9);color:var(--ink);display:none;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(30,45,35,.14)}
+.t-wall.is-live + .t-pause{display:grid}
+.t-pause svg{width:18px;height:18px}
+.t-pause .i-play{display:none}
+.t-pause[aria-pressed="true"] .i-play{display:block}
+.t-pause[aria-pressed="true"] .i-pause{display:none}
+.t-pause:hover{border-color:var(--gold-l)}
+/* no motion wanted: show the cards as a plain scrollable list */
+.still .t-wall.is-live{overflow-y:auto;-webkit-mask-image:none;mask-image:none}
+.still .t-track [aria-hidden="true"],.still .t-pause{display:none !important}
+@media (prefers-reduced-motion: reduce){
+  .t-wall.is-live{overflow-y:auto;-webkit-mask-image:none;mask-image:none}
+  .t-track [aria-hidden="true"],.t-pause{display:none !important}
+}
 @media (max-width: 960px){
   .reviews-wrap{grid-template-columns:1fr}
 }
@@ -243,8 +269,6 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 /* phone menu: the nav already blurs, so a nested blur cannot reach the page; keep the panel near-opaque so it stays readable */
 .m-panel.glass{background:#FBFBF9}
 
-/* footer social with label */
-.footer-social{display:flex;flex-direction:column;gap:2px}
 /* film: sound is off until the visitor switches it on */
 .film-sound{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
 .sound-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:500 15px/1 'Inter Tight',sans-serif;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
@@ -255,6 +279,14 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .sound-btn[aria-pressed="true"] .i-on{display:block}
 .sound-btn[aria-pressed="true"] .i-off{display:none}
 .film-caption{align-items:center}
+
+/* soft sage and gold light behind the whole page; white glass sheets and cards sit on top of it */
+.site{background:#FCFCFA}
+.site::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 60% 24% at 94% 26%,rgba(201,217,204,.66),transparent 100%),radial-gradient(ellipse 54% 24% at 2% 54%,rgba(241,226,194,.74),transparent 100%),radial-gradient(ellipse 46% 20% at 88% 78%,rgba(241,226,194,.52),transparent 100%),radial-gradient(ellipse 40% 18% at 20% 20%,rgba(201,217,204,.34),transparent 100%);
+  background-size:100% 1900px;background-repeat:repeat-y}
+.steps{border-radius:28px;padding:6px 26px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.7));border:1px solid #fff;box-shadow:0 20px 50px rgba(30,45,35,.08),inset 0 1px 0 #fff}
+.section + .section.toned,.section.toned + .section.toned{margin-top:clamp(8px,1.6vw,24px)}
 
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 
@@ -379,9 +411,9 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
             <a class="textlink" href="https://search.google.com/local/writereview?placeid=ChIJU11YTmm7uUcRNWORgoasyWk">Eigene Bewertung schreiben</a>
           </div>
         </div>
-        <div class="carousel glass reveal" data-carousel="1">
-          <div class="reviews" data-track="1" tabindex="0" role="group" aria-label="Stimmen von Klient:innen, mit den Pfeiltasten blättern">
-            <!-- Neue Stimme hinzufügen: einen weiteren <figure class="review"> Block wie die folgenden einfügen. Punkte und Pfeile passen sich von selbst an. -->
+        <div class="t-wrap reveal">
+          <div class="t-wall" data-twall="1" role="group" aria-label="Stimmen von Klient:innen">
+            <!-- Neue Stimme hinzufügen: einen der folgenden figure-Blöcke kopieren und Text, Name und Datum ändern. Die Spalten füllen und bewegen sich von selbst. -->
             <figure class="review"><blockquote>„Ich habe mich direkt willkommen gefühlt. Herr Kolczewski hat eine offene, freundliche und harmonische Ausstrahlung. … Nächster Termin ist gebucht.“</blockquote><figcaption><b>Christina G.</b><span>Google · vor 3 Monaten</span></figcaption></figure>
             <figure class="review"><blockquote>„Seit 2021 schenke ich mir regelmäßig eine Shiatsu Behandlung bei Thomas. … Mit großer Achtsamkeit und feinem Gespür begleitet er jede Sitzung.“</blockquote><figcaption><b>Dorothea v. O.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
             <figure class="review"><blockquote>„Habe mich nach der Behandlung sehr wohl gefühlt. Die Entspannung hält immer noch an. Sehr achtsamer Umgang.“</blockquote><figcaption><b>Anke L.</b><span>Google · vor einem Monat</span></figcaption></figure>
@@ -389,11 +421,7 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
             <figure class="review"><blockquote>„Sehr angenehme Shiatsu Behandlung. Habe Herr Kolczewski auch schon zweimal privat weiter empfohlen.“</blockquote><figcaption><b>Katharina B.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
             <figure class="review"><blockquote>„Die Behandlung ist wie eine energievolle Auszeit. Thomas begleitet sehr wertschätzend und liebevoll.“</blockquote><figcaption><b>Corinna B.</b><span>Google · vor 8 Monaten</span></figcaption></figure>
           </div>
-          <div class="car-nav">
-            <button class="car-btn" type="button" data-prev="1" aria-label="Vorherige Stimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"></path></svg></button>
-            <div class="car-dots" data-dots="1"></div>
-            <button class="car-btn" type="button" data-next="1" aria-label="Nächste Stimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></button>
-          </div>
+          <button class="t-pause" type="button" data-tpause="1" aria-pressed="false" aria-label="Bewegung anhalten"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="6" width="3.4" height="12" rx="1"></rect><rect x="13.6" y="6" width="3.4" height="12" rx="1"></rect></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 6.2v11.6a.8.8 0 0 0 1.2.7l9.4-5.8a.8.8 0 0 0 0-1.4L9.7 5.5a.8.8 0 0 0-1.2.7z"></path></svg></button>
         </div>
       </div>
     </div>
@@ -527,13 +555,39 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
 
   <footer class="footer">
     <div class="container">
-      <img class="footer-logo" src="img/logo-full.png" alt="Shiatsu – Berührung, die bewegt">
-      <span>© Shiatsu Thomas Kolczewski · Maximilianstraße 15a · 48147 Münster</span>
-      <div class="footer-social"><div class="c-label">Folgen Sie mir</div><div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div></div>
-      <nav aria-label="Rechtliches">
-        <a href="https://www.shiatsu-kolczewski.de/impressum/">Impressum</a>
-        <a href="https://www.shiatsu-kolczewski.de/datenschutzerklaerung/">Datenschutz</a>
-      </nav>
+      <div class="f-panel glass">
+        <div class="f-top">
+          <div class="f-brand">
+            <img class="footer-logo" src="img/logo-full.png" alt="Shiatsu – Berührung, die bewegt">
+            <a class="btn btn-dark btn-sm" href="https://www.shiatsu-kolczewski.de/termin/">Termin online buchen</a>
+          </div>
+          <nav class="f-col" aria-label="Seiten">
+            <div class="c-label">Seiten</div>
+            <a href="#behandlung">Behandlung</a>
+            <a href="#preise">Angebote und Preise</a>
+            <a href="#stimmen">Stimmen</a>
+            <a href="#ueber">Über mich</a>
+            <a href="#kontakt">Termin und Kontakt</a>
+          </nav>
+          <div class="f-col">
+            <div class="c-label">Praxis</div>
+            <span>Shiatsu Thomas Kolczewski<br>Maximilianstraße 15a<br>48147 Münster</span>
+            <a href="tel:+491773144921">+49 177 3144921</a>
+            <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a>
+          </div>
+          <div class="f-col f-social">
+            <div class="c-label">Folgen Sie mir</div>
+            <div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div>
+          </div>
+        </div>
+        <div class="f-bottom">
+          <span>© Shiatsu Thomas Kolczewski · Berührung | Bewegung | Balance</span>
+          <nav aria-label="Rechtliches">
+            <a href="https://www.shiatsu-kolczewski.de/impressum/">Impressum</a>
+            <a href="https://www.shiatsu-kolczewski.de/datenschutzerklaerung/">Datenschutz</a>
+          </nav>
+        </div>
+      </div>
     </div>
   </footer>
 </div>
@@ -569,43 +623,44 @@ function shiatsuInit(){
     });
     sync();
   }
-  /* testimonials carousel: one dot per .review block */
-  doc.querySelectorAll('[data-carousel]').forEach(function(root){
-    var track = root.querySelector('[data-track]'), dots = root.querySelector('[data-dots]');
-    var prev = root.querySelector('[data-prev]'), next = root.querySelector('[data-next]');
-    if (!track || !dots || track.dataset.ready) return;
-    track.dataset.ready = '1';
-    var slides = track.querySelectorAll('.review'), n = slides.length;
-    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var index = function(){ return Math.max(0, Math.min(n - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth)))); };
-    var go = function(i){ i = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: i * track.clientWidth, behavior: calm ? 'auto' : 'smooth' }); };
-    dots.innerHTML = '';
-    slides.forEach(function(s, i){
-      s.setAttribute('aria-label', 'Stimme ' + (i + 1) + ' von ' + n);
-      var d = doc.createElement('button'); d.type = 'button'; d.className = 'car-dot';
-      d.setAttribute('aria-label', 'Stimme ' + (i + 1) + ' von ' + n + ' zeigen');
-      d.addEventListener('click', function(){ go(i); });
-      dots.appendChild(d);
-    });
-    var update = function(){
-      var i = index();
-      for (var k = 0; k < dots.children.length; k++) {
-        dots.children[k].classList.toggle('on', k === i);
-        if (k === i) dots.children[k].setAttribute('aria-current', 'true'); else dots.children[k].removeAttribute('aria-current');
+  /* testimonials: split the .review blocks into columns that drift up and down */
+  doc.querySelectorAll('[data-twall]').forEach(function(wall){
+    if (wall.dataset.ready) return;
+    wall.dataset.ready = '1';
+    var src = Array.prototype.slice.call(wall.children).filter(function(el){ return el.classList && el.classList.contains('review'); });
+    if (!src.length) return;
+    var build = function(){
+      var n = (wall.clientWidth >= 620 && src.length >= 4) ? 2 : 1;
+      if (wall.dataset.cols === String(n)) return;
+      wall.dataset.cols = String(n);
+      wall.querySelectorAll('.t-col').forEach(function(c){ c.remove(); });
+      for (var c = 0; c < n; c++) {
+        var own = src.filter(function(_, i){ return i % n === c; });
+        var items = own.slice();
+        while (items.length < 4) items = items.concat(own);          /* always enough cards to fill the height */
+        var col = doc.createElement('div'); col.className = 't-col';
+        var track = doc.createElement('div'); track.className = 't-track' + (c % 2 ? ' down' : '');
+        for (var pass = 0; pass < 2; pass++) {                        /* second pass makes the loop seamless */
+          items.forEach(function(it, i){
+            var k = it.cloneNode(true);
+            if (pass > 0 || i >= own.length) k.setAttribute('aria-hidden', 'true');
+            track.appendChild(k);
+          });
+        }
+        track.style.animationDuration = (items.length * 11) + 's';
+        col.appendChild(track); wall.appendChild(col);
       }
-      if (prev) prev.disabled = i === 0;
-      if (next) next.disabled = i === n - 1;
+      wall.classList.add('is-live');
     };
-    var tick = false;
-    track.addEventListener('scroll', function(){ if (tick) return; tick = true; requestAnimationFrame(function(){ tick = false; update(); }); }, { passive: true });
-    if (prev) prev.addEventListener('click', function(){ go(index() - 1); });
-    if (next) next.addEventListener('click', function(){ go(index() + 1); });
-    track.addEventListener('keydown', function(e){
-      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    build();
+    window.addEventListener('resize', build);
+    var btn = wall.parentNode.querySelector('[data-tpause]');
+    if (btn) btn.addEventListener('click', function(){
+      var p = !wall.classList.contains('paused');
+      wall.classList.toggle('paused', p);
+      btn.setAttribute('aria-pressed', p ? 'true' : 'false');
+      btn.setAttribute('aria-label', p ? 'Bewegung fortsetzen' : 'Bewegung anhalten');
     });
-    window.addEventListener('resize', function(){ track.scrollTo({ left: index() * track.clientWidth, behavior: 'auto' }); update(); });
-    update();
   });
 }
 
