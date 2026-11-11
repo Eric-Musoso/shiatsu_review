@@ -122,7 +122,7 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px;align-items:stretch}
 .price{border-radius:28px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .price:hover{transform:translateY(-6px)}
-.price.feature{background:#16181A;color:#fff;border:1px solid #2A2E31;box-shadow:0 34px 80px rgba(22,24,26,.25)}
+.price.feature{background:#16181A;color:#fff;border:1px solid #2A2E31;box-shadow:0 26px 60px rgba(22,24,26,.20)}
 .price.feature .p-meta,.price.feature .p-list{color:rgba(255,255,255,.75)}
 .price.feature .p-name{color:var(--gold-l)}
 .p-name{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
@@ -201,21 +201,31 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 .social svg{width:18px;height:18px}
 
 /* reviews */
-.reviews-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px;align-items:start}
+.reviews-wrap{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:24px;align-items:stretch}
 .score{border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:10px}
 .score-num{font-family:'Instrument Serif',serif;font-size:clamp(96px,10vw,140px);line-height:.85}
 .score .stars svg{width:24px;height:24px}
 .score-links{display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:15px}
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;grid-column:span 2}
-.review{border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;margin:0}
-.review blockquote{margin:0;font-family:'Instrument Serif',serif;font-size:22px;line-height:1.3;color:var(--ink)}
-.review figcaption{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted)}
+/* testimonials: one at a time, swipe or use the arrows; dots are built from the number of .review blocks */
+.carousel{border-radius:28px;min-width:0;display:flex;flex-direction:column;overflow:hidden}
+.reviews{display:flex;flex:1;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;outline-offset:-4px}
+.reviews::-webkit-scrollbar{display:none}
+.review{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;margin:0;padding:clamp(28px,4vw,52px) clamp(26px,4.5vw,60px) 12px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.review blockquote{margin:0;font-family:'Instrument Serif',serif;font-size:clamp(25px,2.7vw,36px);line-height:1.25;color:var(--ink)}
+.review figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;font-size:15px;color:var(--muted)}
 .review figcaption b{color:var(--ink);font-weight:600}
+.car-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px clamp(18px,3vw,36px) 22px}
+.car-btn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,opacity .2s}
+.car-btn svg{width:20px;height:20px}
+.car-btn:hover{border-color:var(--gold-l)}
+.car-btn:disabled{opacity:.3;cursor:default}
+.car-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
+.car-dot{width:24px;height:24px;padding:0;border:0;background:none;display:grid;place-items:center;cursor:pointer}
+.car-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:rgba(22,24,26,.18);transition:background .25s,transform .25s}
+.car-dot.on::before{background:var(--accent);transform:scale(1.35)}
 @media (max-width: 960px){
-  .reviews{grid-column:auto;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(270px,82%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
-  .review{scroll-snap-align:start}
+  .reviews-wrap{grid-template-columns:1fr}
 }
-
 @media (max-width: 960px){ .m-menu{display:block} }
 
 /* opening hours */
@@ -232,6 +242,19 @@ a{color:#16181A}a:hover{color:#8A6A2E}
 
 /* phone menu: the nav already blurs, so a nested blur cannot reach the page; keep the panel near-opaque so it stays readable */
 .m-panel.glass{background:#FBFBF9}
+
+/* footer social with label */
+.footer-social{display:flex;flex-direction:column;gap:2px}
+/* film: sound is off until the visitor switches it on */
+.film-sound{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.sound-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:500 15px/1 'Inter Tight',sans-serif;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.sound-btn:hover{border-color:var(--gold-l)}
+.sound-btn svg{width:19px;height:19px}
+.sound-btn .i-on{display:none}
+.sound-btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sound-btn[aria-pressed="true"] .i-on{display:block}
+.sound-btn[aria-pressed="true"] .i-off{display:none}
+.film-caption{align-items:center}
 
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 
@@ -311,12 +334,12 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
     <div class="container">
       <div class="head center reveal">
         <p class="eyebrow">Ein Moment Ruhe</p>
-        <h2 class="display h2">Shiatsu in <em>21 Sekunden.</em></h2>
+        <h2 class="display h2">Erleben Sie Shiatsu <em>in 21 Sekunden.</em></h2>
       </div>
       <figure class="film-frame glass reveal">
         <video data-film="1" src="media/shiatsu-film.mp4" poster="img/film-poster.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" controls="controls" preload="auto" aria-label="Kurzfilm: Shiatsu in Münster mit Thomas Kolczewski"></video>
       </figure>
-      <div class="film-caption"><span>Film · 21 Sek. · ohne Ton</span><a class="textlink" href="https://www.shiatsu-kolczewski.de/termin/">Direkt einen Termin wählen</a></div>
+      <div class="film-caption"><div class="film-sound"><button class="sound-btn" type="button" data-sound="1" aria-pressed="false"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3l4.5-4v13l-4.5-4H4z"></path><path d="M16 9.5l5 5M21 9.5l-5 5"></path></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3l4.5-4v13l-4.5-4H4z"></path><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.3 6.5a8 8 0 0 1 0 11"></path></svg><span data-sound-label="1">Ton einschalten</span></button><span>Film · 21 Sek. · mit ruhigem Klang</span></div><a class="textlink" href="https://www.shiatsu-kolczewski.de/termin/">Direkt einen Termin wählen</a></div>
     </div>
   </section>
 
@@ -356,13 +379,21 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
             <a class="textlink" href="https://search.google.com/local/writereview?placeid=ChIJU11YTmm7uUcRNWORgoasyWk">Eigene Bewertung schreiben</a>
           </div>
         </div>
-        <div class="reviews">
-          <figure class="review glass reveal"><blockquote>„Ich habe mich direkt willkommen gefühlt. Herr Kolczewski hat eine offene, freundliche und harmonische Ausstrahlung. … Nächster Termin ist gebucht.“</blockquote><figcaption><b>Christina G.</b><span>Google · vor 3 Monaten</span></figcaption></figure>
-          <figure class="review glass reveal"><blockquote>„Seit 2021 schenke ich mir regelmäßig eine Shiatsu Behandlung bei Thomas. … Mit großer Achtsamkeit und feinem Gespür begleitet er jede Sitzung.“</blockquote><figcaption><b>Dorothea v. O.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
-          <figure class="review glass reveal"><blockquote>„Habe mich nach der Behandlung sehr wohl gefühlt. Die Entspannung hält immer noch an. Sehr achtsamer Umgang.“</blockquote><figcaption><b>Anke L.</b><span>Google · vor einem Monat</span></figcaption></figure>
-          <figure class="review glass reveal"><blockquote>„Die Shiatsu-Behandlung war eine neue und sehr wohltuende Erfahrung. In dem schönen Raum konnte ich wunderbar entspannen.“</blockquote><figcaption><b>Ruth</b><span>Google · vor einem Jahr</span></figcaption></figure>
-          <figure class="review glass reveal"><blockquote>„Sehr angenehme Shiatsu Behandlung. Habe Herr Kolczewski auch schon zweimal privat weiter empfohlen.“</blockquote><figcaption><b>Katharina B.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
-          <figure class="review glass reveal"><blockquote>„Die Behandlung ist wie eine energievolle Auszeit. Thomas begleitet sehr wertschätzend und liebevoll.“</blockquote><figcaption><b>Corinna B.</b><span>Google · vor 8 Monaten</span></figcaption></figure>
+        <div class="carousel glass reveal" data-carousel="1">
+          <div class="reviews" data-track="1" tabindex="0" role="group" aria-label="Stimmen von Klient:innen, mit den Pfeiltasten blättern">
+            <!-- Neue Stimme hinzufügen: einen weiteren <figure class="review"> Block wie die folgenden einfügen. Punkte und Pfeile passen sich von selbst an. -->
+            <figure class="review"><blockquote>„Ich habe mich direkt willkommen gefühlt. Herr Kolczewski hat eine offene, freundliche und harmonische Ausstrahlung. … Nächster Termin ist gebucht.“</blockquote><figcaption><b>Christina G.</b><span>Google · vor 3 Monaten</span></figcaption></figure>
+            <figure class="review"><blockquote>„Seit 2021 schenke ich mir regelmäßig eine Shiatsu Behandlung bei Thomas. … Mit großer Achtsamkeit und feinem Gespür begleitet er jede Sitzung.“</blockquote><figcaption><b>Dorothea v. O.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
+            <figure class="review"><blockquote>„Habe mich nach der Behandlung sehr wohl gefühlt. Die Entspannung hält immer noch an. Sehr achtsamer Umgang.“</blockquote><figcaption><b>Anke L.</b><span>Google · vor einem Monat</span></figcaption></figure>
+            <figure class="review"><blockquote>„Die Shiatsu-Behandlung war eine neue und sehr wohltuende Erfahrung. In dem schönen Raum konnte ich wunderbar entspannen.“</blockquote><figcaption><b>Ruth</b><span>Google · vor einem Jahr</span></figcaption></figure>
+            <figure class="review"><blockquote>„Sehr angenehme Shiatsu Behandlung. Habe Herr Kolczewski auch schon zweimal privat weiter empfohlen.“</blockquote><figcaption><b>Katharina B.</b><span>Google · vor 9 Monaten</span></figcaption></figure>
+            <figure class="review"><blockquote>„Die Behandlung ist wie eine energievolle Auszeit. Thomas begleitet sehr wertschätzend und liebevoll.“</blockquote><figcaption><b>Corinna B.</b><span>Google · vor 8 Monaten</span></figcaption></figure>
+          </div>
+          <div class="car-nav">
+            <button class="car-btn" type="button" data-prev="1" aria-label="Vorherige Stimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"></path></svg></button>
+            <div class="car-dots" data-dots="1"></div>
+            <button class="car-btn" type="button" data-next="1" aria-label="Nächste Stimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></button>
+          </div>
         </div>
       </div>
     </div>
@@ -394,8 +425,7 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
     <div class="aura sage" style="width: 560px; height: 560px; left: -160px; top: 120px"></div>
     <div class="container">
       <div class="head center reveal">
-        <p class="eyebrow">Angebote und Preise</p>
-        <h2 class="display h2">Klar und <em>fair.</em></h2>
+        <h2 class="display h2">Angebote <em>und Preise.</em></h2>
       </div>
       <div class="prices">
         <article class="price feature reveal">
@@ -403,28 +433,28 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
           <span class="p-amount">90 €</span>
           <span class="p-meta">60 Min. Behandlung · 90 Min. Zeit</span>
           <ul class="p-list"><li>Vor- und Nachgespräch</li><li>Nachruhen inklusive</li></ul>
-          <a class="btn btn-light" href="https://www.shiatsu-kolczewski.de/termin/">Termin buchen</a>
+          <a class="btn btn-light btn-sm" href="https://www.shiatsu-kolczewski.de/termin/">Termin buchen</a>
         </article>
-        <article class="price glass reveal">
+        <article class="price feature reveal">
           <span class="p-name">5er-Karte</span>
           <span class="p-amount">405 €</span>
-          <span class="p-meta">5 × 60 Min. · 6 Monate gültig</span>
-          <ul class="p-list"><li>Für regelmäßige Begleitung</li><li>10 % günstiger als einzeln</li></ul>
-          <a class="btn btn-dark btn-sm" href="#kontakt">Karte anfragen</a>
+          <span class="p-meta">5 × 60 Min. Behandlung · 90 Min.</span>
+          <ul class="p-list"><li>10 % günstiger als einzeln</li><li>6 Monate gültig</li></ul>
+          <a class="btn btn-light btn-sm" href="#kontakt">Karte anfragen</a>
         </article>
-        <article class="price glass reveal">
+        <article class="price feature reveal">
           <span class="p-name">Shiatsu kompakt</span>
           <span class="p-amount">45 €</span>
           <span class="p-meta">30 Min. Behandlung</span>
           <ul class="p-list"><li>Ideal für die Mittagspause</li><li>Zum Kennenlernen</li></ul>
-          <a class="btn btn-dark btn-sm" href="https://www.shiatsu-kolczewski.de/termin/">Termin buchen</a>
+          <a class="btn btn-light btn-sm" href="https://www.shiatsu-kolczewski.de/termin/">Termin buchen</a>
         </article>
-        <article class="price glass reveal" id="gutschein">
+        <article class="price feature reveal" id="gutschein">
           <span class="p-name">Gutschein</span>
           <span class="p-amount">ab 50 €</span>
           <span class="p-meta">Sofort als PDF per E-Mail</span>
           <ul class="p-list"><li>Für eine Behandlung (90 €) oder einen Wunschbetrag ab 50 €</li><li>Das Geschenk für Weihnachten</li></ul>
-          <a class="btn btn-dark btn-sm" href="#kontakt">Gutschein verschenken</a>
+          <a class="btn btn-light btn-sm" href="#kontakt">Gutschein verschenken</a>
         </article>
       </div>
     </div>
@@ -462,7 +492,6 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
         <figure><img src="img/foto-hara.jpg" alt="Behandlung am Bauch"></figure>
         <figure><img src="img/foto-anatomie-pflanze.jpg" alt="Meridian-Modell neben einer Pflanze"></figure>
         <figure><img src="img/foto-dehnung-arm.jpg" alt="Dehnung des Arms"></figure>
-        <figure><img src="img/foto-anatomie-modell.jpg" alt="Meridian-Modell auf dem Regal"></figure>
       </div>
     </div>
   </section>
@@ -492,7 +521,6 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
             <div class="weekend"><dt>Samstag &amp; Sonntag</dt><span class="leader"></span><dd><a href="https://www.shiatsu-kolczewski.de/termin/">Freie Termine im Kalender</a></dd></div>
           </dl>
         </div>
-        <div style="grid-column: 1 / -1"><div class="c-label">Folgen Sie mir</div><div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div></div>
       </div>
     </div>
   </section>
@@ -501,7 +529,7 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
     <div class="container">
       <img class="footer-logo" src="img/logo-full.png" alt="Shiatsu – Berührung, die bewegt">
       <span>© Shiatsu Thomas Kolczewski · Maximilianstraße 15a · 48147 Münster</span>
-      <div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div>
+      <div class="footer-social"><div class="c-label">Folgen Sie mir</div><div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div></div>
       <nav aria-label="Rechtliches">
         <a href="https://www.shiatsu-kolczewski.de/impressum/">Impressum</a>
         <a href="https://www.shiatsu-kolczewski.de/datenschutzerklaerung/">Datenschutz</a>
@@ -517,8 +545,71 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.removeAttribute('open'); }); });
     document.addEventListener('click', function(e){ if (menu.hasAttribute('open') && !menu.contains(e.target)) menu.removeAttribute('open'); });
   }
-  var v = document.querySelector('video[data-film]');
-  if (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+
+function shiatsuInit(){
+  var doc = document;
+  /* film: plays muted; sound only after the visitor switches it on */
+  var v = doc.querySelector('video[data-film]');
+  var sb = doc.querySelector('[data-sound]');
+  if (v && !v.dataset.ready) {
+    v.dataset.ready = '1';
+    v.muted = true;
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+    var sync = function(){
+      var on = !v.muted && v.volume > 0;
+      var b = doc.querySelector('[data-sound]'); if (!b) return;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var l = b.querySelector('[data-sound-label]'); if (l) l.textContent = on ? 'Ton ausschalten' : 'Ton einschalten';
+    };
+    v.addEventListener('volumechange', sync);
+    if (sb) sb.addEventListener('click', function(){
+      if (v.muted || v.volume === 0) { v.volume = 0.6; v.muted = false; var q = v.play(); if (q && q.catch) q.catch(function(){}); }
+      else { v.muted = true; }
+      sync();
+    });
+    sync();
+  }
+  /* testimonials carousel: one dot per .review block */
+  doc.querySelectorAll('[data-carousel]').forEach(function(root){
+    var track = root.querySelector('[data-track]'), dots = root.querySelector('[data-dots]');
+    var prev = root.querySelector('[data-prev]'), next = root.querySelector('[data-next]');
+    if (!track || !dots || track.dataset.ready) return;
+    track.dataset.ready = '1';
+    var slides = track.querySelectorAll('.review'), n = slides.length;
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var index = function(){ return Math.max(0, Math.min(n - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth)))); };
+    var go = function(i){ i = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: i * track.clientWidth, behavior: calm ? 'auto' : 'smooth' }); };
+    dots.innerHTML = '';
+    slides.forEach(function(s, i){
+      s.setAttribute('aria-label', 'Stimme ' + (i + 1) + ' von ' + n);
+      var d = doc.createElement('button'); d.type = 'button'; d.className = 'car-dot';
+      d.setAttribute('aria-label', 'Stimme ' + (i + 1) + ' von ' + n + ' zeigen');
+      d.addEventListener('click', function(){ go(i); });
+      dots.appendChild(d);
+    });
+    var update = function(){
+      var i = index();
+      for (var k = 0; k < dots.children.length; k++) {
+        dots.children[k].classList.toggle('on', k === i);
+        if (k === i) dots.children[k].setAttribute('aria-current', 'true'); else dots.children[k].removeAttribute('aria-current');
+      }
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === n - 1;
+    };
+    var tick = false;
+    track.addEventListener('scroll', function(){ if (tick) return; tick = true; requestAnimationFrame(function(){ tick = false; update(); }); }, { passive: true });
+    if (prev) prev.addEventListener('click', function(){ go(index() - 1); });
+    if (next) next.addEventListener('click', function(){ go(index() + 1); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    });
+    window.addEventListener('resize', function(){ track.scrollTo({ left: index() * track.clientWidth, behavior: 'auto' }); update(); });
+    update();
+  });
+}
+
+  shiatsuInit();
 })();
 </script>
 </body>
