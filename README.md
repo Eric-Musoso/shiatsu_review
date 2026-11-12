@@ -54,7 +54,7 @@ Everything is plain HTML with no build step. To replace the current site, upload
 ## Things to keep up to date
 
 - Appointment times, prices and the number of Google reviews are written directly in `website/index.html`.
-- The booking buttons link to the existing calendar at `https://www.shiatsu-kolczewski.de/termin/`.
+- The booking buttons open the Cal.com booking pages: `https://cal.com/shiatsu-kolczewski` (both appointments), `…/shiatsu-behandlung` (90 minutes) and `…/shiatsu-kompakt` (30 minutes). Bookable times, appointment types and their texts are managed in the Cal.com account, not in this repository.
 - Review quotes show shortened names; ask the reviewers before showing full names.
 - To add a testimonial, copy one `<figure class="review">` block in `website/index.html` and change the text. The columns fill and move on their own.
 - Update the Google Business Profile hours to match the website (Mon 14–20, Tue 14–20, Wed 11–20, Thu 11–19, Fri 17–20).
