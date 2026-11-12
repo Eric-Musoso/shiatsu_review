@@ -5,7 +5,7 @@
 ## Since this review
 
 - A new version of the website was built from this review: [see the new website](https://eric-musoso.github.io/shiatsu_review/website/).
-- Opening hours confirmed: Monday 14–19, Tuesday 14–20, Wednesday 11–20, Thursday 11–19, Friday 17–20; at the weekend, free slots in the online calendar. With 90-minute slots back to back these hours hold 20 sessions a week (Mon 3, Tue 4, Wed 6, Thu 5, Fri 2), exactly the 4-a-day target. The Google Business Profile still shows other hours and should be updated to match.
+- Appointment times confirmed: Monday 14–20, Tuesday 14–20, Wednesday 11–20, Thursday 11–19, Friday 17–20; at the weekend, free slots in the online calendar. With 90-minute slots back to back these hours hold 21 sessions a week (Mon 4, Tue 4, Wed 6, Thu 5, Fri 2), one more than the 4-a-day target of 20. The Google Business Profile still shows other hours and should be updated to match.
 - Prices confirmed: Shiatsu-Behandlung 90 €; Shiatsu kompakt, 30 minutes, 45 €; 5er-Karte 405 €; gift vouchers from 50 €, sent at once as a PDF by e-mail.
 
 ## Summary
