@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung – Shiatsu Kolczewski</title>
+<style>
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/instrument-serif-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/instrument-serif-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/inter-tight-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/inter-tight-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/inter-tight-latin-600-normal.woff2') format('woff2')}
+
+body{margin:0;background:#FBFBF9}
+a{color:#16181A}a:hover{color:#8A6A2E}
+.site{--ink:#16181A;--muted:#575E5A;--line:rgba(22,24,26,.10);--bg:#FBFBF9;--tone:#F3F5F1;--gold-l:#C9A65F;
+  font-family:'Inter Tight',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);overflow-x:clip;position:relative;-webkit-font-smoothing:antialiased}
+.site *{box-sizing:border-box}
+.site img{display:block;max-width:100%}
+.container{width:100%;max-width:1240px;margin:0 auto;padding-inline:clamp(20px,4vw,48px);position:relative;z-index:2}
+.display{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.02em;line-height:.98;margin:0;text-wrap:balance}
+.display em{font-style:italic;color:var(--accent)}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin:0}
+.eyebrow::before{content:'';flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold-l);background:#fff;box-shadow:0 0 0 4px rgba(201,166,95,.16)}
+.lead{font-size:clamp(18px,1.5vw,20px);line-height:1.6;color:var(--muted);margin:0;text-wrap:pretty}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.66));-webkit-backdrop-filter:blur(28px) saturate(175%);backdrop-filter:blur(28px) saturate(175%);
+  border:1px solid #fff;box-shadow:0 30px 70px rgba(30,45,35,.11),0 2px 6px rgba(30,45,35,.04),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(255,255,255,.55)}
+.aura{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.aura.sage{background:#C9D9CC;opacity:.7}
+.aura.gold{background:#F1E2C2;opacity:.8}
+
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;border-radius:999px;font-size:16px;font-weight:500;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 16px 36px rgba(22,24,26,.20)}
+.btn-dark:hover{color:#fff}
+.btn-glass{color:var(--ink)}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn-dot{width:28px;height:28px;border-radius:50%;background:var(--gold-l);display:inline-flex;align-items:center;justify-content:center;margin-right:-10px}
+
+/* nav */
+.nav-wrap{position:sticky;top:12px;z-index:40;padding-inline:clamp(12px,3vw,32px)}
+.nav{max-width:1240px;margin:12px auto 0;border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:8px 8px 8px 14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand-logo{width:36px;height:auto}
+.brand-name{display:flex;flex-direction:column;line-height:1.05;font-family:'Instrument Serif',serif;font-size:21px}
+.tagline{display:flex;align-items:center;gap:7px;margin-top:4px;font-family:'Inter Tight',sans-serif;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.tagline i{display:block;width:1px;height:9px;background:var(--gold-l)}
+.links{display:flex;gap:2px}
+.links a{font-size:15px;text-decoration:none;padding:12px 14px;border-radius:999px;color:var(--ink)}
+.links a:hover{background:#fff;color:var(--accent)}
+
+/* hero */
+.hero{position:relative;margin-top:-80px;padding:150px 0 110px}
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:clamp(40px,6vw,80px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:26px}
+.hero-title{font-size:clamp(56px,7vw,112px)}
+.w{display:inline-block;opacity:0;transform:translateY(40px);filter:blur(10px);animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
+.w1{animation-delay:.1s}.w2{animation-delay:.25s}.w3{animation-delay:.4s}.w4{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+.fade{opacity:0;animation:fadeUp .9s .9s cubic-bezier(.2,.7,.2,1) forwards}
+.fade.d2{animation-delay:1.1s}.fade.d3{animation-delay:1.3s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.trust{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;color:var(--muted)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust b{color:var(--ink)}
+.stars{display:inline-flex;gap:2px}
+.stars svg{width:16px;height:16px}
+
+.hero-media{position:relative;min-height:560px;perspective:1400px}
+.hm-main{position:relative;margin:0 0 0 auto;width:min(440px,88%);aspect-ratio:2/3;border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(30,45,35,.18);opacity:0;animation:fadeUp 1.2s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.hm-main img{width:100%;height:100%;object-fit:cover;animation:breathe 18s ease-in-out infinite alternate}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hm-small{position:absolute;left:0;bottom:36px;width:min(220px,44%);padding:8px;border-radius:24px;transform:rotateY(12deg) rotateX(4deg);opacity:0;animation:fadeUp 1.1s 1s cubic-bezier(.2,.7,.2,1) forwards;margin:0}
+.hm-small img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:18px}
+.hm-card{position:absolute;right:-8px;top:40px;padding:14px 18px;border-radius:18px;display:flex;flex-direction:column;gap:2px;opacity:0;animation:fadeUp 1s 1.3s cubic-bezier(.2,.7,.2,1) forwards}
+.hm-card b{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.05}
+.hm-card span{font-size:13px;color:var(--muted)}
+
+/* meridian motif */
+.meridian{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.meridian .m-line{fill:none;stroke:#C9A65F;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:2600;stroke-dashoffset:2600;opacity:.75;animation:draw 3.4s .4s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.meridian .tp{opacity:0;animation:fadeIn .6s forwards}
+.meridian .tp1{animation-delay:1s}.meridian .tp2{animation-delay:1.6s}.meridian .tp3{animation-delay:2.2s}.meridian .tp4{animation-delay:2.8s}
+@keyframes fadeIn{to{opacity:1}}
+
+/* sections */
+.section{position:relative;padding:clamp(80px,9vw,128px) 0}
+.section.toned{margin-inline:clamp(8px,1.6vw,24px);border-radius:clamp(28px,4vw,56px);background:linear-gradient(160deg,rgba(255,255,255,.88),rgba(255,255,255,.60));border:1px solid #fff;box-shadow:0 30px 90px rgba(30,45,35,.08),inset 0 1px 0 #fff}
+.head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:48px}
+.head.center{margin-inline:auto;text-align:center;align-items:center}
+.h2{font-size:clamp(42px,5vw,76px)}
+
+.film-frame{border-radius:30px;padding:10px;margin:0}
+.film-frame video{display:block;width:100%;aspect-ratio:16/9;border-radius:22px;background:#F3F5F1;object-fit:cover}
+.film-caption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:18px;font-size:14px;color:var(--muted)}
+.textlink{font-weight:500;text-decoration:underline;text-underline-offset:4px}
+
+.intro-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:32px 48px;align-items:end;margin-bottom:48px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:20px}
+.tile{border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.tile:hover{transform:translateY(-6px);box-shadow:0 34px 70px rgba(30,45,35,.14)}
+.tile img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.tile-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px}
+.tile-no{font-family:'Instrument Serif',serif;font-size:18px;color:var(--accent)}
+.tile h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05;margin:0}
+.tile p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+.note{font-size:13px;line-height:1.5;color:var(--muted);margin:24px 0 0}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:clamp(40px,6vw,88px);align-items:center}
+.photo-frame{border-radius:30px;padding:10px;margin:0}
+.photo-frame img{width:100%;border-radius:22px;object-fit:cover}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:52px minmax(0,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:22px;background:#fff;border:1.5px solid var(--gold-l);color:var(--accent)}
+.step h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.1;margin:0 0 4px}
+.step p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:14px;color:var(--muted)}
+.facts span{display:flex;align-items:center;gap:8px}
+.facts span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-l)}
+
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px;align-items:stretch}
+.price{border-radius:28px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.price:hover{transform:translateY(-6px)}
+.price.feature{background:#16181A;color:#fff;border:1px solid #2A2E31;box-shadow:0 26px 60px rgba(22,24,26,.20)}
+.price.feature .p-meta,.price.feature .p-list{color:rgba(255,255,255,.75)}
+.price.feature .p-name{color:var(--gold-l)}
+.p-name{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.p-amount{font-family:'Instrument Serif',serif;font-size:60px;line-height:1}
+.p-meta{font-size:15px;color:var(--muted)}
+.p-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted);flex-grow:1}
+.ph{background:rgba(201,166,95,.2);border-radius:6px;padding:0 6px}
+.price .btn{align-self:flex-start}
+
+.about-copy{display:flex;flex-direction:column;gap:20px}
+.about-copy p{margin:0;font-size:18px;line-height:1.65;color:var(--muted)}
+.about-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:12px}
+.about-facts div{border-radius:18px;padding:16px 18px;font-size:14px;line-height:1.4;color:var(--muted)}
+.about-facts b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;color:var(--ink);margin-bottom:2px}
+
+.gallery{columns:3 260px;column-gap:16px}
+.gallery figure{margin:0 0 16px;break-inside:avoid;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(30,45,35,.10)}
+.gallery img{width:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+
+.contact-card{border-radius:30px;padding:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:24px}
+.c-label{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.c-value{font-size:17px;line-height:1.5}
+.c-value a{text-decoration:none}
+.footer{position:relative;z-index:2;padding:clamp(20px,3vw,36px) 0 clamp(20px,3vw,36px);font-size:15px;color:var(--muted)}
+.f-panel{border-radius:clamp(28px,3.4vw,44px);padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1.15fr 1.25fr;gap:clamp(28px,4vw,56px);padding-bottom:clamp(28px,4vw,48px)}
+.f-brand{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.footer-logo{width:104px;height:auto}
+.f-col{display:flex;flex-direction:column;align-items:flex-start;gap:11px;line-height:1.5}
+.f-col .c-label{margin-bottom:6px}
+.f-col a,.f-col span{color:var(--ink);text-decoration:none;font-size:16px}
+.f-col a:hover{color:var(--accent)}
+.f-social .social{flex-direction:column;align-items:flex-start;gap:8px}
+.f-social .social a{font-size:15px;background:rgba(255,255,255,.85)}
+.f-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding:20px 0 22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.f-bottom nav{display:flex;gap:22px}
+.f-bottom a{color:var(--muted);text-decoration:none}
+.f-bottom a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+@media (max-width: 960px){ .f-top{grid-template-columns:1fr 1fr} .f-brand{grid-column:1 / -1} }
+@media (max-width: 520px){ .f-top{grid-template-columns:1fr} .f-social .social{flex-direction:row;flex-wrap:wrap} }
+
+@supports (animation-timeline: view()){
+  .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+  @keyframes reveal{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+}
+.still *,.still *::before,.still *::after{animation:none !important;transition:none !important}
+.still .w,.still .fade,.still .hm-main,.still .hm-small,.still .hm-card,.still .meridian .tp{opacity:1;transform:none;filter:none}
+.still .meridian .m-line{stroke-dashoffset:0}
+@media (prefers-reduced-motion: reduce){
+  .site *,.site *::before,.site *::after{animation:none !important;transition:none !important}
+  .site .w,.site .fade,.site .hm-main,.site .hm-small,.site .hm-card,.site .meridian .tp{opacity:1;filter:none}
+  .site .meridian .m-line{stroke-dashoffset:0}
+}
+@media (max-width: 960px){
+  .links{display:none}
+  .m-menu{display:block}
+  .hero{padding-top:130px}
+  .hero-media{min-height:0}
+  .hm-main{margin:0 auto}
+  .hm-small{display:none}
+  .hm-card{right:12px;top:16px}
+}
+@media (max-width: 520px){
+  .nav-cta{display:none}
+  .brand-name{font-size:19px}
+  .tagline{font-size:8.5px;letter-spacing:.1em;gap:5px}
+  .brand-logo{width:30px}
+}
+
+/* phone menu */
+.nav-right{display:flex;align-items:center;gap:8px}
+.m-menu{display:none;position:relative}
+.m-menu summary{list-style:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;border:1px solid var(--line)}
+.m-menu summary::-webkit-details-marker{display:none}
+.m-menu .ic-close{display:none}
+.m-menu[open] .ic-open{display:none}
+.m-menu[open] .ic-close{display:block}
+.m-panel{position:absolute;right:0;top:56px;width:min(300px,86vw);border-radius:24px;padding:12px;display:flex;flex-direction:column;gap:2px;z-index:60}
+.m-panel a{font-size:17px;text-decoration:none;padding:13px 16px;border-radius:14px;color:var(--ink)}
+.m-panel a:hover{background:#fff}
+.m-panel .btn{justify-content:center;margin-top:8px;color:#fff}
+
+/* social */
+.social{display:flex;flex-wrap:wrap;gap:10px}
+.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:15px;text-decoration:none;color:var(--ink)}
+.social a:hover{border-color:var(--gold-l);color:var(--accent)}
+.social svg{width:18px;height:18px}
+
+/* reviews */
+.reviews-wrap{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:28px;align-items:center}
+.score{border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:10px}
+.score-num{font-family:'Instrument Serif',serif;font-size:clamp(96px,10vw,140px);line-height:.85}
+.score .stars svg{width:24px;height:24px}
+.score-links{display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:15px}
+/* testimonials: columns of cards that drift slowly up and down; built by the script from the .review blocks */
+.t-wrap{position:relative;min-width:0}
+.t-wall{display:grid;gap:16px;max-height:560px;overflow-y:auto;border-radius:24px}
+.t-wall.is-live{display:flex;gap:16px;height:clamp(440px,62vh,580px);max-height:none;overflow:hidden;border-radius:0;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%)}
+.t-wall.is-live > .review{display:none}
+.t-col{flex:1;min-width:0}
+.t-track{display:flex;flex-direction:column;animation:t-drift 60s linear infinite;will-change:transform}
+.t-track.down{animation-direction:reverse}
+.t-wall.is-live:hover .t-track,.t-wall.is-live:focus-within .t-track,.t-wall.paused .t-track{animation-play-state:paused}
+@keyframes t-drift{to{transform:translateY(-50%)}}
+.review{margin:0;border-radius:24px;padding:24px 26px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(255,255,255,.78));border:1px solid #fff;box-shadow:0 14px 34px rgba(30,45,35,.08),inset 0 1px 0 #fff}
+.t-track .review{margin-bottom:16px}
+.review::before{content:'★★★★★';font-size:14px;letter-spacing:3px;color:var(--gold-l);line-height:1}
+.review blockquote{margin:0;font-family:'Instrument Serif',serif;font-size:clamp(20px,1.7vw,23px);line-height:1.3;color:var(--ink)}
+.review figcaption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;font-size:14px;color:var(--muted)}
+.review figcaption b{color:var(--ink);font-weight:600}
+.t-pause{position:absolute;right:10px;bottom:10px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.9);color:var(--ink);display:none;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(30,45,35,.14)}
+.t-wall.is-live + .t-pause{display:grid}
+.t-pause svg{width:18px;height:18px}
+.t-pause .i-play{display:none}
+.t-pause[aria-pressed="true"] .i-play{display:block}
+.t-pause[aria-pressed="true"] .i-pause{display:none}
+.t-pause:hover{border-color:var(--gold-l)}
+/* no motion wanted: show the cards as a plain scrollable list */
+.still .t-wall.is-live{overflow-y:auto;-webkit-mask-image:none;mask-image:none}
+.still .t-track [aria-hidden="true"],.still .t-pause{display:none !important}
+@media (prefers-reduced-motion: reduce){
+  .t-wall.is-live{overflow-y:auto;-webkit-mask-image:none;mask-image:none}
+  .t-track [aria-hidden="true"],.t-pause{display:none !important}
+}
+@media (max-width: 960px){
+  .reviews-wrap{grid-template-columns:1fr}
+}
+@media (max-width: 960px){ .m-menu{display:block} }
+
+/* opening hours */
+.hours{margin:4px 0 0;display:flex;flex-direction:column}
+.hours div{display:flex;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.hours div:last-child{border-bottom:none}
+.hours dt{font-family:'Instrument Serif',Georgia,serif;font-size:22px;line-height:1.1;flex:none}
+.hours .leader{flex:1;min-width:16px;border-bottom:1.5px dotted rgba(201,166,95,.7);transform:translateY(-5px)}
+.hours dd{margin:0;font-size:16px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hours .weekend dt{font-style:italic;color:var(--accent)}
+.hours .weekend dd a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+
+@media (max-width: 520px){ .hours .weekend{flex-wrap:wrap} .hours .weekend .leader{display:none} .hours .weekend dd{white-space:normal;width:100%} .hours dt{font-size:20px} }
+
+/* phone menu: the nav already blurs, so a nested blur cannot reach the page; keep the panel near-opaque so it stays readable */
+.m-panel.glass{background:#FBFBF9}
+
+/* film: sound is off until the visitor switches it on */
+.film-sound{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.sound-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:500 15px/1 'Inter Tight',sans-serif;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.sound-btn:hover{border-color:var(--gold-l)}
+.sound-btn svg{width:19px;height:19px}
+.sound-btn .i-on{display:none}
+.sound-btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sound-btn[aria-pressed="true"] .i-on{display:block}
+.sound-btn[aria-pressed="true"] .i-off{display:none}
+.film-caption{align-items:center}
+
+/* soft sage and gold light behind the whole page; white glass sheets and cards sit on top of it */
+.site{background:#FCFCFA}
+.site::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 60% 24% at 94% 26%,rgba(201,217,204,.66),transparent 100%),radial-gradient(ellipse 54% 24% at 2% 54%,rgba(241,226,194,.74),transparent 100%),radial-gradient(ellipse 46% 20% at 88% 78%,rgba(241,226,194,.52),transparent 100%),radial-gradient(ellipse 40% 18% at 20% 20%,rgba(201,217,204,.34),transparent 100%);
+  background-size:100% 1900px;background-repeat:repeat-y}
+.steps{border-radius:28px;padding:6px 26px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,.7));border:1px solid #fff;box-shadow:0 20px 50px rgba(30,45,35,.08),inset 0 1px 0 #fff}
+.section + .section.toned,.section.toned + .section.toned{margin-top:clamp(8px,1.6vw,24px)}
+
+.hours-note{margin:0 0 4px;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:20px;line-height:1.3;color:var(--ink)}
+
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+
+/* ---------- legal pages (Impressum, Datenschutz) ---------- */
+.legal-main{position:relative;z-index:2;padding:clamp(28px,5vw,64px) 0 clamp(32px,5vw,72px)}
+.legal-sheet{display:block;max-width:860px;margin:0 auto;padding:clamp(28px,5vw,64px);border-radius:clamp(28px,4vw,48px)}
+.legal-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:clamp(22px,3vw,34px);font-size:15px;color:var(--muted);text-decoration:none}
+.legal-back:hover{color:var(--ink)}
+.legal-title{font-size:clamp(46px,6.4vw,84px);margin:14px 0 clamp(18px,2.6vw,28px);hyphens:manual}
+.legal-lead{font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:var(--muted);margin:0 0 6px;text-wrap:pretty}
+.legal-sheet h2{font:600 13px/1.45 'Inter Tight',system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:clamp(30px,3.6vw,42px) 0 10px}
+.legal-sheet p,.legal-sheet li{font-size:16.5px;line-height:1.7;color:var(--ink);margin:0 0 12px;text-wrap:pretty}
+.legal-sheet ul{margin:0 0 12px;padding-left:1.2em}
+.legal-sheet li{margin-bottom:6px}
+.legal-sheet li::marker{color:var(--gold-l)}
+.legal-sheet a:not(.legal-back){color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.legal-box{margin-top:18px !important;padding:16px 20px;border-left:3px solid var(--gold-l);border-radius:0 16px 16px 0;background:rgba(201,166,95,.09)}
+.legal-date{margin-top:clamp(30px,4vw,44px) !important;font-size:14px !important;color:var(--muted) !important}
+@media (max-width: 520px){ .legal-sheet{border-radius:28px} .legal-sheet p,.legal-sheet li{font-size:16px} }
+
+</style>
+</head>
+<body>
+<div class="site" style="--accent: #8A6A2E">
+<header class="nav-wrap">
+    <nav class="nav glass" aria-label="Hauptnavigation">
+      <a class="brand" href="../">
+        <img class="brand-logo" src="../img/logo-tree.png" alt="Logo Shiatsu Kolczewski">
+        <span class="brand-name">Shiatsu Kolczewski<span class="tagline"><span>Berührung</span><i></i><span>Bewegung</span><i></i><span>Balance</span></span></span>
+      </a>
+      <div class="links">
+        <a href="../#behandlung">Behandlung</a>
+        <a href="../#preise">Preise</a>
+        <a href="../#stimmen">Stimmen</a>
+        <a href="../#ueber">Über mich</a>
+        <a href="../#kontakt">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn btn-dark btn-sm nav-cta" href="https://cal.com/shiatsu-kolczewski" target="_blank" rel="noopener">Termin buchen</a>
+        <details class="m-menu">
+          <summary aria-label="Menü öffnen">
+            <svg class="ic-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16181A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+            <svg class="ic-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16181A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </summary>
+          <div class="m-panel glass">
+            <a href="../#behandlung">Behandlung</a>
+            <a href="../#preise">Preise</a>
+            <a href="../#ablauf">Ablauf</a>
+            <a href="../#stimmen">Stimmen</a>
+            <a href="../#ueber">Über mich</a>
+            <a href="../#praxis">Die Praxis</a>
+            <a href="../#kontakt">Kontakt</a>
+            <a class="btn btn-dark" href="https://cal.com/shiatsu-kolczewski" target="_blank" rel="noopener">Termin online buchen</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+  </header>
+<main class="legal-main"><div class="container"><article class="legal-sheet glass">
+<a class="legal-back" href="../">&larr; Zur Startseite</a>
+<p class="eyebrow">Rechtliches</p>
+<h1 class="display legal-title">Datenschutz&shy;erklärung</h1>
+<p class="legal-lead">Hier erfahren Sie, welche personenbezogenen Daten beim Besuch dieser Website und bei einer Terminbuchung verarbeitet werden, wozu das geschieht und welche Rechte Sie haben.</p>
+
+<h2>1. Verantwortlicher</h2>
+<p>Thomas Kolczewski<br>
+Shiatsu – Berührung die bewegt<br>
+Maximilianstraße 15a<br>
+48147 Münster<br>
+Telefon: <a href="tel:+491773144921">+49 177 3144921</a><br>
+E-Mail: <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a></p>
+
+<h2>2. Das Wichtigste in Kürze</h2>
+<ul>
+  <li>Diese Website setzt keine Cookies und speichert nichts auf Ihrem Gerät.</li>
+  <li>Es gibt keine Besucherstatistik, kein Tracking und keine Werbung.</li>
+  <li>Schriften, Bilder und der Film werden vom eigenen Webserver geladen. Beim Seitenaufruf wird keine Verbindung zu Google, Facebook oder anderen Anbietern aufgebaut.</li>
+  <li>Personenbezogene Daten fallen nur an, wenn Sie die Seite aufrufen (technische Server-Logfiles), uns schreiben oder anrufen oder einen Termin online buchen.</li>
+</ul>
+
+<h2>3. Hosting und Server-Logfiles</h2>
+<p>Die Website liegt auf Servern der webgo GmbH, Heidenkampsweg 81, 20097 Hamburg. Bei jedem Aufruf übermittelt Ihr Browser technisch bedingt Daten, die der Server in sogenannten Logfiles speichert: IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene Seite oder Datei, die zuvor besuchte Seite (Referrer), Browsertyp und Betriebssystem.</p>
+<p>Diese Daten werden benötigt, um die Website auszuliefern und sie vor Missbrauch und Angriffen zu schützen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist ein sicherer und stabiler Betrieb der Website. Mit webgo besteht ein Vertrag über Auftragsverarbeitung nach Art. 28 DSGVO. Die Logfiles werden nach den Fristen des Hosters gelöscht, sofern sie nicht zur Aufklärung eines Sicherheitsvorfalls länger benötigt werden. Weitere Informationen: <a href="https://www.webgo.de/datenschutz/" rel="noopener">webgo.de/datenschutz</a>.</p>
+
+<h2>4. Verschlüsselung</h2>
+<p>Die Website wird über eine verschlüsselte Verbindung (TLS) ausgeliefert. Sie erkennen das an „https://“ in der Adresszeile und am Schloss-Symbol Ihres Browsers.</p>
+
+<h2>5. Kontakt per E-Mail oder Telefon</h2>
+<p>Wenn Sie uns eine E-Mail schreiben oder anrufen, verarbeiten wir Ihre Angaben (zum Beispiel Name, Kontaktdaten und Ihr Anliegen), um Ihre Anfrage zu beantworten. Das gilt auch für die Schaltflächen „Karte anfragen“ und „Gutschein verschenken“: Sie öffnen Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht; gesendet wird erst, wenn Sie selbst auf „Senden“ klicken.</p>
+<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage einen Termin, eine 5er-Karte, einen Gutschein oder eine andere Leistung betrifft, sonst Art. 6 Abs. 1 lit. f DSGVO (Interesse an der Beantwortung Ihrer Anfrage). Wir löschen die Daten, wenn Ihr Anliegen erledigt ist, es sei denn, gesetzliche Aufbewahrungspflichten (zum Beispiel für Rechnungen) stehen dem entgegen.</p>
+
+<h2>6. Online-Terminbuchung über Cal.com</h2>
+<p>Die Schaltflächen „Termin buchen“ führen zur Buchungsseite von Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA. Dort geben Sie folgende Daten ein: Vor- und Nachname, E-Mail-Adresse, Anschrift, Telefonnummer, den gewünschten Termin und auf Wunsch einen Rabattcode und eine Notiz.</p>
+<p>Wir nutzen diese Daten, um Ihre Terminanfrage zu prüfen, den Termin zu bestätigen, zu verschieben oder abzusagen und Ihnen Bestätigungen per E-Mail zu senden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Cal.com verarbeitet die Daten in unserem Auftrag nach Art. 28 DSGVO auf Grundlage seines Vertrags zur Auftragsverarbeitung. Cal.com, Inc. ist nach dem EU-US Data Privacy Framework zertifiziert; die Übermittlung in die USA stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Informationen von Cal.com zum Datenschutz: <a href="https://cal.com/privacy" rel="noopener">cal.com/privacy</a>.</p>
+<p>Bestätigte Termine werden außerdem in unseren Kalender bei Apple (iCloud) eingetragen, damit es keine Doppelbuchungen gibt. Anbieter ist für Nutzer in der EU die Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irland.</p>
+<p>Bitte tragen Sie in das Notizfeld keine Angaben zu Ihrer Gesundheit ein. Solche Fragen besprechen wir gern persönlich vor der Behandlung.</p>
+<p>Für eine Online-Buchung sind Name, E-Mail-Adresse, Anschrift und Telefonnummer erforderlich. Möchten Sie diese Daten nicht online angeben, vereinbaren Sie Ihren Termin gern telefonisch. Die Buchungsdaten werden gelöscht, sobald sie für Durchführung und Abrechnung des Termins nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+
+<h2>7. Links zu sozialen Netzwerken und Google</h2>
+<p>Diese Website enthält einfache Links zu unseren Profilen bei Instagram, Facebook und LinkedIn sowie zu unseren Bewertungen bei Google. Es sind keine eingebetteten Inhalte oder „Like“-Schaltflächen: Daten an diese Anbieter werden erst übertragen, wenn Sie einen Link anklicken. Ab dann gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+
+<h2>8. Ihre Rechte</h2>
+<p>Sie haben jederzeit das Recht auf</p>
+<ul>
+  <li>Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO),</li>
+  <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO),</li>
+  <li>Löschung (Art. 17 DSGVO) und Einschränkung der Verarbeitung (Art. 18 DSGVO),</li>
+  <li>Datenübertragbarkeit (Art. 20 DSGVO).</li>
+</ul>
+<p>Eine formlose Nachricht an <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a> genügt.</p>
+<p class="legal-box"><strong>Widerspruchsrecht nach Art. 21 DSGVO:</strong> Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, können Sie dieser Verarbeitung aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+<p>Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Für uns zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf, <a href="https://www.ldi.nrw.de" rel="noopener">www.ldi.nrw.de</a>.</p>
+
+<h2>9. Automatisierte Entscheidungen</h2>
+<p>Eine automatisierte Entscheidungsfindung oder ein Profiling nach Art. 22 DSGVO findet nicht statt.</p>
+
+<p class="legal-date">Stand: November 2026</p>
+</article></div></main>
+<footer class="footer">
+    <div class="container">
+      <div class="f-panel glass">
+        <div class="f-top">
+          <div class="f-brand">
+            <img class="footer-logo" src="../img/logo-full.png" alt="Shiatsu – Berührung, die bewegt">
+          </div>
+          <nav class="f-col" aria-label="Seiten">
+            <div class="c-label">Seiten</div>
+            <a href="../#behandlung">Behandlung</a>
+            <a href="../#preise">Angebote und Preise</a>
+            <a href="../#stimmen">Stimmen</a>
+            <a href="../#ueber">Über mich</a>
+            <a href="../#kontakt">Termin und Kontakt</a>
+          </nav>
+          <div class="f-col">
+            <div class="c-label">Praxis</div>
+            <span>Shiatsu Thomas Kolczewski<br>Maximilianstraße 15a<br>48147 Münster</span>
+            <a href="tel:+491773144921">+49 177 3144921</a>
+            <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a>
+          </div>
+          <div class="f-col f-social">
+            <div class="c-label">Folgen Sie mir</div>
+            <div class="social"><a href="https://www.instagram.com/shiatsu_thomas/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>Instagram</a><a href="https://www.facebook.com/p/Shiatsu-Ber%C3%BChrung-die-bewegt-Thomas-Kolczewski-100063616897824/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg>Facebook</a><a href="https://www.linkedin.com/in/thomas-kolczewski-434545422/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg>LinkedIn</a></div>
+          </div>
+        </div>
+        <div class="f-bottom">
+          <span>© Shiatsu Thomas Kolczewski · Berührung | Bewegung | Balance</span>
+          <nav aria-label="Rechtliches">
+            <a href="../impressum/">Impressum</a>
+            <a href="../datenschutzerklaerung/">Datenschutz</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script>
+(function(){
+  var menu = document.querySelector('.m-menu');
+  if (menu) {
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.removeAttribute('open'); }); });
+    document.addEventListener('click', function(e){ if (menu.hasAttribute('open') && !menu.contains(e.target)) menu.removeAttribute('open'); });
+  }
+
+function shiatsuInit(){
+  var doc = document;
+  /* film: plays muted; sound only after the visitor switches it on */
+  var v = doc.querySelector('video[data-film]');
+  var sb = doc.querySelector('[data-sound]');
+  if (v && !v.dataset.ready) {
+    v.dataset.ready = '1';
+    v.muted = true;
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+    var sync = function(){
+      var on = !v.muted && v.volume > 0;
+      var b = doc.querySelector('[data-sound]'); if (!b) return;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var l = b.querySelector('[data-sound-label]'); if (l) l.textContent = on ? 'Ton ausschalten' : 'Ton einschalten';
+    };
+    v.addEventListener('volumechange', sync);
+    if (sb) sb.addEventListener('click', function(){
+      if (v.muted || v.volume === 0) { v.volume = 0.6; v.muted = false; var q = v.play(); if (q && q.catch) q.catch(function(){}); }
+      else { v.muted = true; }
+      sync();
+    });
+    sync();
+  }
+  /* testimonials: split the .review blocks into columns that drift up and down */
+  doc.querySelectorAll('[data-twall]').forEach(function(wall){
+    if (wall.dataset.ready) return;
+    wall.dataset.ready = '1';
+    var src = Array.prototype.slice.call(wall.children).filter(function(el){ return el.classList && el.classList.contains('review'); });
+    if (!src.length) return;
+    var build = function(){
+      var n = (wall.clientWidth >= 620 && src.length >= 4) ? 2 : 1;
+      if (wall.dataset.cols === String(n)) return;
+      wall.dataset.cols = String(n);
+      wall.querySelectorAll('.t-col').forEach(function(c){ c.remove(); });
+      for (var c = 0; c < n; c++) {
+        var own = src.filter(function(_, i){ return i % n === c; });
+        var items = own.slice();
+        while (items.length < 4) items = items.concat(own);          /* always enough cards to fill the height */
+        var col = doc.createElement('div'); col.className = 't-col';
+        var track = doc.createElement('div'); track.className = 't-track' + (c % 2 ? ' down' : '');
+        for (var pass = 0; pass < 2; pass++) {                        /* second pass makes the loop seamless */
+          items.forEach(function(it, i){
+            var k = it.cloneNode(true);
+            if (pass > 0 || i >= own.length) k.setAttribute('aria-hidden', 'true');
+            track.appendChild(k);
+          });
+        }
+        track.style.animationDuration = (items.length * 11) + 's';
+        col.appendChild(track); wall.appendChild(col);
+      }
+      wall.classList.add('is-live');
+    };
+    build();
+    window.addEventListener('resize', build);
+    var btn = wall.parentNode.querySelector('[data-tpause]');
+    if (btn) btn.addEventListener('click', function(){
+      var p = !wall.classList.contains('paused');
+      wall.classList.toggle('paused', p);
+      btn.setAttribute('aria-pressed', p ? 'true' : 'false');
+      btn.setAttribute('aria-label', p ? 'Bewegung fortsetzen' : 'Bewegung anhalten');
+    });
+  });
+}
+
+  shiatsuInit();
+})();
+</script>
+</body>
+</html>
