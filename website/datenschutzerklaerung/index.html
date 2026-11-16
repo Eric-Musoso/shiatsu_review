@@ -359,6 +359,14 @@ html{scroll-padding-top:96px}
 .legal-box{margin-top:18px !important;padding:16px 20px;border-left:3px solid var(--gold-l);border-radius:0 16px 16px 0;background:rgba(201,166,95,.09)}
 .legal-date{margin-top:clamp(30px,4vw,44px) !important;font-size:0.875rem !important;color:var(--muted) !important}
 @media (max-width: 520px){ .legal-sheet{border-radius:28px} .legal-sheet p,.legal-sheet li{font-size:1rem} }
+/* ---------- thank-you page after a booking request (16 Nov 2026) ---------- */
+.legal-sheet ol.thanks-steps{list-style:none;counter-reset:step;margin:0 0 12px;padding:0}
+.legal-sheet ol.thanks-steps li{counter-increment:step;position:relative;padding-left:44px;margin-bottom:14px}
+.legal-sheet ol.thanks-steps li::before{content:counter(step);position:absolute;left:0;top:1px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:600 0.875rem/1 'Inter Tight',system-ui,sans-serif;color:var(--accent);background:rgba(201,166,95,.14)}
+.legal-sheet ol.thanks-steps strong{font-weight:600}
+.legal-sheet .thanks-sign{margin-top:clamp(24px,3vw,34px);font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.375rem;line-height:1.4}
+.legal-sheet .thanks-actions{margin-top:clamp(22px,3vw,30px)}
+.legal-sheet a.btn{color:#fff;text-decoration:none}
 
 </style>
 </head>
