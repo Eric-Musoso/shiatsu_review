@@ -1,0 +1,37 @@
+# Shiatsu Kolczewski – neue Website (November 2026)
+# Liegt im Hauptordner der Website. Die alte WordPress-Seite bleibt unverändert im Ordner /wordpress.
+
+# Eigene Fehlerseite für Adressen, die es nicht mehr gibt
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Alte WordPress-Adressen dauerhaft auf die passenden Abschnitte der neuen Seite umleiten
+RewriteRule ^ueber-mich/?$ /#ueber [R=301,NE,L]
+RewriteRule ^shiatsu-behandlung/?$ /#behandlung [R=301,NE,L]
+RewriteRule ^preise/?$ /#preise [R=301,NE,L]
+RewriteRule ^termin/?$ /#kontakt [R=301,NE,L]
+RewriteRule ^kontakt/?$ /#kontakt [R=301,NE,L]
+RewriteRule ^blog(/.*)?$ / [R=301,L]
+RewriteRule ^feed/?$ / [R=301,L]
+</IfModule>
+
+# Bilder, Schriften und Film länger im Browser zwischenspeichern (schnellere Seite)
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 month"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType video/mp4 "access plus 1 month"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_mime.c>
+AddType font/woff2 .woff2
+</IfModule>

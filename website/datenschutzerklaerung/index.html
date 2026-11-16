@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-root="../">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Datenschutzerklärung – Shiatsu Kolczewski</title>
+<link rel="canonical" href="https://www.shiatsu-kolczewski.de/datenschutzerklaerung/">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <style>
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/instrument-serif-latin-400-normal.woff2') format('woff2')}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/instrument-serif-latin-400-italic.woff2') format('woff2')}
@@ -616,8 +619,8 @@ function shiatsuInit(){
     var links = document.querySelectorAll('a[href^="https://cal.com/shiatsu-kolczewski"]');
     if (!links.length) return;
     var ORIGIN = 'https://app.cal.com', LIB = ORIGIN + '/embed/embed.js', NS = 'shiatsu';
-    var deep = new RegExp('/(impressum|datenschutzerklaerung|termin-angefragt)/?$').test(location.pathname);
-    var thanks = new URL((deep ? '../' : '') + 'termin-angefragt/', location.href).href;
+    var root = document.documentElement.getAttribute('data-root') || './';
+    var thanks = new URL(root + 'termin-angefragt/', location.href).href;
     var state = 'idle', pending = null, timer = null;
     var fallback = function(){ if (pending) { var h = pending; pending = null; window.location.href = h; } };
     var done = function(){ pending = null; window.location.href = thanks; };
