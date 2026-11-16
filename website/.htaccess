@@ -7,12 +7,14 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Prüfregel (nur für die Adresse /probe-https): zeigt, ob der Server https richtig erkennt.
-# Wird nach dem Umschalten durch die Regel "immer https://www" ersetzt.
+# Immer https://www.shiatsu-kolczewski.de verwenden (gilt nur für diese Domain)
+RewriteCond %{HTTP_HOST} ^(www\.)?shiatsu-kolczewski\.de$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteCond %{ENV:HTTPS} !=on
-RewriteRule ^probe-https$ /robots.txt [R=302,L]
+RewriteRule ^ https://www.shiatsu-kolczewski.de%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^shiatsu-kolczewski\.de$ [NC]
+RewriteRule ^ https://www.shiatsu-kolczewski.de%{REQUEST_URI} [R=301,L]
 
 # Alte WordPress-Adressen dauerhaft auf die passenden Abschnitte der neuen Seite umleiten
 RewriteRule ^ueber-mich/?$ https://www.shiatsu-kolczewski.de/#ueber [R=301,NE,L]
