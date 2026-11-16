@@ -751,6 +751,39 @@ function shiatsuInit(){
 }
 
   shiatsuInit();
+  /* Booking (16 Nov 2026): the Cal.com booking calendar opens in a window on this site. Nothing is loaded from Cal.com
+     before a booking button is clicked. After a booking request the site itself shows /termin-angefragt/.
+     If the window can't be loaded, the button falls back to the normal Cal.com page. */
+  (function(){
+    var links = document.querySelectorAll('a[href^="https://cal.com/shiatsu-kolczewski"]');
+    if (!links.length) return;
+    var ORIGIN = 'https://app.cal.com', LIB = ORIGIN + '/embed/embed.js', NS = 'shiatsu';
+    var deep = new RegExp('/(impressum|datenschutzerklaerung|termin-angefragt)/?$').test(location.pathname);
+    var thanks = new URL((deep ? '../' : '') + 'termin-angefragt/', location.href).href;
+    var state = 'idle', pending = null, timer = null;
+    var fallback = function(){ if (pending) { var h = pending; pending = null; window.location.href = h; } };
+    var done = function(){ pending = null; window.location.href = thanks; };
+    function load(){
+      if (state !== 'idle') return;
+      state = 'loading';
+      (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; var s = d.createElement('script'); s.src = A; s.onload = function(){ state = 'ready'; clearTimeout(timer); pending = null; }; s.onerror = function(){ state = 'failed'; clearTimeout(timer); fallback(); }; d.head.appendChild(s); cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, LIB, 'init');
+      Cal('init', NS, { origin: ORIGIN });
+      Cal.ns[NS]('ui', { theme: 'light', layout: 'month_view', hideEventTypeDetails: false });
+      Cal.ns[NS]('on', { action: 'bookingSuccessfulV2', callback: done });
+      Cal.ns[NS]('on', { action: 'rescheduleBookingSuccessfulV2', callback: done });
+    }
+    links.forEach(function(a){
+      a.addEventListener('click', function(e){
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;   /* new tab / window: leave as a normal link */
+        if (state === 'failed') return;                                                   /* window couldn't load before: normal link */
+        e.preventDefault();
+        var href = a.getAttribute('href');
+        load();
+        if (state === 'loading') { pending = href; clearTimeout(timer); timer = setTimeout(function(){ if (state === 'loading') { state = 'failed'; fallback(); } }, 15000); }
+        Cal.ns[NS]('modal', { calLink: href.replace('https://cal.com/', ''), config: { layout: 'month_view', theme: 'light' } });
+      });
+    });
+  })();
 })();
 </script>
 </body>

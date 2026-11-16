@@ -423,9 +423,9 @@ E-Mail: <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a></p>
 
 <h2>2. Das Wichtigste in Kürze</h2>
 <ul>
-  <li>Diese Website setzt keine Cookies und speichert nichts auf Ihrem Gerät.</li>
+  <li>Diese Website setzt keine Cookies und speichert nichts auf Ihrem Gerät. (Zur Online-Buchung siehe Abschnitt 6.)</li>
   <li>Es gibt keine Besucherstatistik, kein Tracking und keine Werbung.</li>
-  <li>Schriften, Bilder und der Film werden vom eigenen Webserver geladen. Beim Seitenaufruf wird keine Verbindung zu Google, Facebook oder anderen Anbietern aufgebaut.</li>
+  <li>Schriften, Bilder und der Film werden vom eigenen Webserver geladen. Beim Seitenaufruf wird keine Verbindung zu Google, Facebook, Cal.com oder anderen Anbietern aufgebaut.</li>
   <li>Personenbezogene Daten fallen nur an, wenn Sie die Seite aufrufen (technische Server-Logfiles), uns schreiben oder anrufen oder einen Termin online buchen.</li>
 </ul>
 
@@ -441,7 +441,8 @@ E-Mail: <a href="mailto:shiatsu@kolczewski.de">shiatsu@kolczewski.de</a></p>
 <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage einen Termin, eine 5er-Karte, einen Gutschein oder eine andere Leistung betrifft, sonst Art. 6 Abs. 1 lit. f DSGVO (Interesse an der Beantwortung Ihrer Anfrage). Wir löschen die Daten, wenn Ihr Anliegen erledigt ist, es sei denn, gesetzliche Aufbewahrungspflichten (zum Beispiel für Rechnungen) stehen dem entgegen.</p>
 
 <h2>6. Online-Terminbuchung über Cal.com</h2>
-<p>Die Schaltflächen „Termin buchen“ führen zur Buchungsseite von Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA. Dort geben Sie folgende Daten ein: Vor- und Nachname, E-Mail-Adresse, Anschrift, Telefonnummer, den gewünschten Termin und auf Wunsch einen Rabattcode und eine Notiz.</p>
+<p>Für die Online-Buchung nutzen wir Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA. Erst wenn Sie auf „Termin buchen“ klicken, öffnet sich der Buchungskalender von Cal.com in einem Fenster auf dieser Website (ohne Klick wird nichts von Cal.com geladen). Ab diesem Moment werden technische Daten wie Ihre IP-Adresse an Cal.com übertragen, und Cal.com kann im Browser speichern, was für die Buchung technisch nötig ist (zum Beispiel Zeitzone und Spracheinstellung). Lässt sich das Fenster nicht laden, öffnet sich stattdessen die Buchungsseite direkt bei Cal.com.</p>
+<p>Im Buchungskalender geben Sie folgende Daten ein: Vor- und Nachname, E-Mail-Adresse, Anschrift, Telefonnummer, den gewünschten Termin und auf Wunsch einen Rabattcode und eine Notiz. Ihre E-Mail-Adresse bestätigen Sie mit einem Code, den Cal.com Ihnen schickt. Nach dem Absenden zeigt diese Website eine Danke-Seite an; dabei werden keine Buchungsdaten an unseren Webserver übertragen. 48 Stunden vor dem Termin sendet Cal.com Ihnen eine Erinnerung per E-Mail.</p>
 <p>Wir nutzen diese Daten, um Ihre Terminanfrage zu prüfen, den Termin zu bestätigen, zu verschieben oder abzusagen und Ihnen Bestätigungen per E-Mail zu senden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Cal.com verarbeitet die Daten in unserem Auftrag nach Art. 28 DSGVO auf Grundlage seines Vertrags zur Auftragsverarbeitung. Cal.com, Inc. ist nach dem EU-US Data Privacy Framework zertifiziert; die Übermittlung in die USA stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Informationen von Cal.com zum Datenschutz: <a href="https://cal.com/privacy" rel="noopener">cal.com/privacy</a>.</p>
 <p>Bestätigte Termine werden außerdem in unseren Kalender bei Apple (iCloud) eingetragen, damit es keine Doppelbuchungen gibt. Anbieter ist für Nutzer in der EU die Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irland.</p>
 <p>Bitte tragen Sie in das Notizfeld keine Angaben zu Ihrer Gesundheit ein. Solche Fragen besprechen wir gern persönlich vor der Behandlung.</p>
@@ -608,6 +609,39 @@ function shiatsuInit(){
 }
 
   shiatsuInit();
+  /* Booking (16 Nov 2026): the Cal.com booking calendar opens in a window on this site. Nothing is loaded from Cal.com
+     before a booking button is clicked. After a booking request the site itself shows /termin-angefragt/.
+     If the window can't be loaded, the button falls back to the normal Cal.com page. */
+  (function(){
+    var links = document.querySelectorAll('a[href^="https://cal.com/shiatsu-kolczewski"]');
+    if (!links.length) return;
+    var ORIGIN = 'https://app.cal.com', LIB = ORIGIN + '/embed/embed.js', NS = 'shiatsu';
+    var deep = new RegExp('/(impressum|datenschutzerklaerung|termin-angefragt)/?$').test(location.pathname);
+    var thanks = new URL((deep ? '../' : '') + 'termin-angefragt/', location.href).href;
+    var state = 'idle', pending = null, timer = null;
+    var fallback = function(){ if (pending) { var h = pending; pending = null; window.location.href = h; } };
+    var done = function(){ pending = null; window.location.href = thanks; };
+    function load(){
+      if (state !== 'idle') return;
+      state = 'loading';
+      (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; var s = d.createElement('script'); s.src = A; s.onload = function(){ state = 'ready'; clearTimeout(timer); pending = null; }; s.onerror = function(){ state = 'failed'; clearTimeout(timer); fallback(); }; d.head.appendChild(s); cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, LIB, 'init');
+      Cal('init', NS, { origin: ORIGIN });
+      Cal.ns[NS]('ui', { theme: 'light', layout: 'month_view', hideEventTypeDetails: false });
+      Cal.ns[NS]('on', { action: 'bookingSuccessfulV2', callback: done });
+      Cal.ns[NS]('on', { action: 'rescheduleBookingSuccessfulV2', callback: done });
+    }
+    links.forEach(function(a){
+      a.addEventListener('click', function(e){
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;   /* new tab / window: leave as a normal link */
+        if (state === 'failed') return;                                                   /* window couldn't load before: normal link */
+        e.preventDefault();
+        var href = a.getAttribute('href');
+        load();
+        if (state === 'loading') { pending = href; clearTimeout(timer); timer = setTimeout(function(){ if (state === 'loading') { state = 'failed'; fallback(); } }, 15000); }
+        Cal.ns[NS]('modal', { calLink: href.replace('https://cal.com/', ''), config: { layout: 'month_view', theme: 'light' } });
+      });
+    });
+  })();
 })();
 </script>
 </body>
